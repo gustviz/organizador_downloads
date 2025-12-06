@@ -2,15 +2,15 @@ from pathlib import Path # find path
 import shutil # move files
 
 
-home_dir = Path.home()
-downloads_dir = home_dir / "Downloads"
+home_dir = Path.home() #find home directory
+downloads_dir = home_dir / "Downloads" #find downloads directory
 
 
 for f in downloads_dir.iterdir():
     if f.is_file():
-        suffix = f.suffix.lower()
+        suffix = f.suffix.lower() #get file extension
         if suffix in ['.pdf', '.doc', '.docx']:
-            shutil.move(str(f), str(downloads_dir / "Documentos"))        
+            shutil.move(str(f), str(downloads_dir / "Documentos"))
 
         if suffix in ['.jpg', '.jpeg', '.png']:
             shutil.move(str(f), str(downloads_dir / "Imagens"))
